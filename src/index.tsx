@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
+import { AppProviders } from 'appProviders/AppProviders';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import '@fontsource/roboto';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </React.StrictMode>
 );
 
