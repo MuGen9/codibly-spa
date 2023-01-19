@@ -1,11 +1,22 @@
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ModalProvider from 'providers/ModalProvider';
+import { SnackbarProvider } from 'notistack';
+import MainView from 'views/main/Main';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Codibly SPA</h1>
-    </div>
+    <SnackbarProvider>
+      <ModalProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/">
+              <Route index element={<MainView />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ModalProvider>
+    </SnackbarProvider>
   );
-}
+};
 
 export default App;
