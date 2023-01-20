@@ -5,7 +5,7 @@ import MainView from 'views/main/Main';
 
 const App = () => {
   return (
-    <SnackbarProvider>
+    <SnackbarProvider autoHideDuration={3000}>
       <ModalProvider>
         <BrowserRouter>
           <Routes>

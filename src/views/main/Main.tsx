@@ -99,14 +99,14 @@ const MainView = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map((row) => (
+            {products.map((product) => (
               <TableRow
-                key={row.id}
-                style={{ backgroundColor: row.color }}
-                onClick={() => showModal(row)}>
-                <TableCell align="center">{row.id}</TableCell>
-                <TableCell align="center">{row.name}</TableCell>
-                <TableCell align="center">{row.year}</TableCell>
+                key={product.id}
+                style={{ backgroundColor: product.color }}
+                onClick={() => showModal(product)}>
+                <TableCell align="center">{product.id}</TableCell>
+                <TableCell align="center">{product.name}</TableCell>
+                <TableCell align="center">{product.year}</TableCell>
               </TableRow>
             ))}
           </TableBody>
