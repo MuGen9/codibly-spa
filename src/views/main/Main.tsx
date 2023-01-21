@@ -15,6 +15,8 @@ import { useSnackbar } from 'notistack';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
+import Loading from 'components/Loading';
+import { Typography } from '@mui/material';
 
 const MainView = () => {
   const { page, perPage, changePage, totalPages, changeTotalPages } = usePagination();
@@ -71,12 +73,12 @@ const MainView = () => {
     else loadData(page, perPage);
   }, []);
 
-  if (loading) return <>Loading data...</>;
+  if (loading) return <Loading />;
 
   return (
-    <Box sx={{ p: 4 }}>
+    <Box sx={{ p: 1 }}>
       <Paper>
-        <Stack direction="row">
+        <Stack direction="row" sx={{ p: 1 }} justifyContent="center" spacing={1}>
           <TextField
             placeholder="Enter search query..."
             onChange={handleSearchQueryChange}
@@ -90,7 +92,7 @@ const MainView = () => {
         </Stack>
       </Paper>
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table sx={{ minWidth: 200 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell align="center">ID</TableCell>
@@ -112,20 +114,26 @@ const MainView = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Button
-        variant="contained"
-        color="primary"
-        disabled={page === 1 || loading}
-        onClick={() => handlePageChange(page - 1)}>
-        Previous
-      </Button>
-      <Button
-        variant="contained"
-        color="primary"
-        disabled={page === totalPages || loading}
-        onClick={() => handlePageChange(page + 1)}>
-        Next
-      </Button>
+      <br />
+      <Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          disabled={page === 1 || loading}
+          onClick={() => handlePageChange(page - 1)}>
+          Previous
+        </Button>
+        <Typography variant="h5">{page}</Typography>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          disabled={page === totalPages || loading}
+          onClick={() => handlePageChange(page + 1)}>
+          Next
+        </Button>
+      </Stack>
     </Box>
   );
 };
