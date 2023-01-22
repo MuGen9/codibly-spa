@@ -99,9 +99,15 @@ const MainView = () => {
         <Table sx={{ minWidth: 200 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center">ID</TableCell>
-              <TableCell align="center">Name</TableCell>
-              <TableCell align="center">Year</TableCell>
+              <TableCell sx={{ fontSize: '1.1rem' }} align="center">
+                ID
+              </TableCell>
+              <TableCell sx={{ fontSize: '1.1rem' }} align="center">
+                Name
+              </TableCell>
+              <TableCell sx={{ fontSize: '1.1rem' }} align="center">
+                Year
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -110,9 +116,15 @@ const MainView = () => {
                 key={product.id}
                 style={{ backgroundColor: product.color }}
                 onClick={() => showModal(product)}>
-                <TableCell align="center">{product.id}</TableCell>
-                <TableCell align="center">{product.name}</TableCell>
-                <TableCell align="center">{product.year}</TableCell>
+                <TableCell align="center" sx={{ fontSize: '1.1rem' }}>
+                  {product.id}
+                </TableCell>
+                <TableCell align="center" sx={{ fontSize: '1.1rem' }}>
+                  {product.name}
+                </TableCell>
+                <TableCell align="center" sx={{ fontSize: '1.1rem' }}>
+                  {product.year}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
