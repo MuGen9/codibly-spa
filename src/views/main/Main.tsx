@@ -17,6 +17,9 @@ import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import Loading from 'components/Loading';
 import { Typography } from '@mui/material';
+import SearchIcon from '@mui/icons-material/Search';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const MainView = () => {
   const { page, perPage, changePage, totalPages, changeTotalPages } = usePagination();
@@ -90,7 +93,11 @@ const MainView = () => {
             label="Search by ID"
             value={searchQuery}
           />
-          <Button variant="contained" color="secondary" onClick={handleSearch}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={handleSearch}
+            endIcon={<SearchIcon />}>
             Search
           </Button>
         </Stack>
@@ -116,13 +123,13 @@ const MainView = () => {
                 key={product.id}
                 style={{ backgroundColor: product.color }}
                 onClick={() => showModal(product)}>
-                <TableCell align="center" sx={{ fontSize: '1.1rem' }}>
+                <TableCell sx={{ fontSize: '1.1rem' }} align="center">
                   {product.id}
                 </TableCell>
-                <TableCell align="center" sx={{ fontSize: '1.1rem' }}>
+                <TableCell sx={{ fontSize: '1.1rem' }} align="center">
                   {product.name}
                 </TableCell>
-                <TableCell align="center" sx={{ fontSize: '1.1rem' }}>
+                <TableCell sx={{ fontSize: '1.1rem' }} align="center">
                   {product.year}
                 </TableCell>
               </TableRow>
@@ -141,7 +148,8 @@ const MainView = () => {
           color="primary"
           size="large"
           disabled={page === 1 || loading}
-          onClick={() => handlePageChange(page - 1)}>
+          onClick={() => handlePageChange(page - 1)}
+          startIcon={<ArrowBackIcon />}>
           Previous
         </Button>
         <Typography variant="h5">{page}</Typography>
@@ -150,7 +158,8 @@ const MainView = () => {
           color="primary"
           size="large"
           disabled={page === totalPages || loading}
-          onClick={() => handlePageChange(page + 1)}>
+          onClick={() => handlePageChange(page + 1)}
+          endIcon={<ArrowForwardIcon />}>
           Next
         </Button>
       </Stack>
