@@ -84,10 +84,10 @@ const MainView = () => {
           justifyContent="center"
           spacing={1}>
           <TextField
-            placeholder="Enter search query..."
+            placeholder="Enter ID..."
             onChange={handleSearchQueryChange}
             type="number"
-            label="Search query"
+            label="Search by ID"
             value={searchQuery}
           />
           <Button variant="contained" color="secondary" onClick={handleSearch}>
