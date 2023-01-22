@@ -16,19 +16,6 @@ const ModalContext = createContext<IModalContext>({
   isOpen: false
 });
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  p: 4
-  //   '@media (min-width: 700px)': {
-  //     backgroundColor: 'red !important'
-  //   }
-};
-
 const ModalProvider = ({ children }: { children: React.ReactNode }) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -43,10 +30,24 @@ const ModalProvider = ({ children }: { children: React.ReactNode }) => {
     setIsOpen(false);
   };
 
+  const modalStyle = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    textAlign: 'center',
+    width: 350,
+    p: 3,
+    backgroundColor: `${product?.color}`,
+    '@media (max-width: 400px)': {
+      width: '100vw'
+    }
+  };
+
   return (
     <ModalContext.Provider value={{ isOpen, showModal, hideModal }}>
       <Modal open={isOpen} onClose={hideModal}>
-        <Card sx={style}>
+        <Card sx={modalStyle}>
           <Typography>ID: {product?.id}</Typography>
           <Typography>Name: {product?.name}</Typography>
           <Typography>Year: {product?.year}</Typography>

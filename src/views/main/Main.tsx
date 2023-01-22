@@ -78,7 +78,11 @@ const MainView = () => {
   return (
     <Box sx={{ p: 1 }}>
       <Paper>
-        <Stack direction="row" sx={{ p: 1 }} justifyContent="center" spacing={1}>
+        <Stack
+          direction={{ xs: 'column', sm: 'row' }}
+          sx={{ p: 1 }}
+          justifyContent="center"
+          spacing={1}>
           <TextField
             placeholder="Enter search query..."
             onChange={handleSearchQueryChange}
@@ -115,7 +119,11 @@ const MainView = () => {
         </Table>
       </TableContainer>
       <br />
-      <Stack direction="row" justifyContent="center" alignItems="center" spacing={1}>
+      <Stack
+        direction={{ xs: 'column', sm: 'row' }}
+        justifyContent="center"
+        alignItems="center"
+        spacing={1}>
         <Button
           variant="contained"
           color="primary"
