@@ -83,7 +83,7 @@ const MainView = () => {
       <Paper>
         <Stack
           direction={{ xs: 'column', sm: 'row' }}
-          sx={{ p: 1 }}
+          sx={{ p: 2 }}
           justifyContent="center"
           spacing={1}>
           <TextField
@@ -137,12 +137,12 @@ const MainView = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <br />
       <Stack
         direction={{ xs: 'column', sm: 'row' }}
         justifyContent="center"
         alignItems="center"
-        spacing={1}>
+        spacing={2}
+        mt={2}>
         <Button
           variant="contained"
           color="primary"
